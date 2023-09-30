@@ -3,24 +3,24 @@ import csv
 from django.db import models
 
 # Create your models here.
-class Movie:
+class Movie(models.Model):
 
-    def __init__(self, tmdb_id, title, cast, homepage, director, keywords, overview, runtime_minutes, genres,
-                 production_companies, release_date, vote_count, vote_average):
-        self.tmdb_id = tmdb_id
-        self.title = title
-        self.cast = cast
-        self.homepage = homepage
-        self.director = director
-        self.keywords = keywords
-        self.overview = overview
-        self.runtime_minutes = int(runtime_minutes)
-        self.genres = genres
-        self.production_companies = production_companies
-        self.release_date = release_date
-        self.vote_count = int(vote_count)
-        self.vote_average = float(vote_average)
+    tmdb_id = models.CharField(max_length=15)
+    title = models.CharField(max_length=1000)
+    cast = models.CharField(max_length=1000)
+    homepage = models.URLField()
+    director = models.CharField(max_length=1000)
+    keywords = models.CharField(max_length=1000)
+    overview = models.TextField()
+    runtime_minutes = models.IntegerField()
+    genres = models.CharField(max_length=1000)
+    production_companies = models.CharField(max_length=1000)
+    release_date = models.DateField()
+    vote_count = models.IntegerField()
+    vote_average = models.DecimalField(max_digits=5, decimal_places=2)
 
+
+    '''makemigrations'''
     @staticmethod
     def get_all():
         movies_arr = []
