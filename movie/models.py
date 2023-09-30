@@ -19,6 +19,8 @@ class Movie(models.Model):
     vote_count = models.IntegerField()
     vote_average = models.DecimalField(max_digits=5, decimal_places=2)
 
+    def __str__(self):
+        return f'{self.title},{self.release_date}'
 
     '''makemigrations'''
     @staticmethod
@@ -41,3 +43,13 @@ class Movie(models.Model):
             if movie.tmdb_id == tmdb_id:
                 return movie
         return None
+
+
+
+
+'''
+Movie.objects.filter(title__startswith='Jurassic')
+Movie.objects.filter(title__contains='Jurassic', vote_average__gt = 7)
+
+
+'''
