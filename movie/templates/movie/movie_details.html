@@ -6,12 +6,29 @@
 
 {% block page_content %}
 
-    <h1>{{ movie.title }}</h1>
-    {{ movie.director }}
-    {{ movie.overview }}
-    {{ movie.release_date }}
-    {{ movie.vote_count }}
-    {{ movie.vote_average|floatformat:1 }}
+    {% if movie %}
+        <h1>{{ movie.title }}</h1>
+        {{ movie.director }}
+        {{ movie.overview }}
+        {{ movie.release_date }}
+        {{ movie.vote_count }}
+        {% if movie.vote_average >= 7 %}
+            <span class="uk-text-success"> {{ movie.vote_average|floatformat:1 }} </span>
+        {% elif movie.vote_average > 7 %}
+            <span class="uk-text-warning"> {{ movie.vote_average|floatformat:1 }} </span>
+        {% else %}
+            <span class="uk-text-danger"> {{ movie.vote_average|floatformat:1 }} </span>
+
+
+        {% endif %}
+
+    {% else %}
+        <h1><b>Movie do not exists</b></h1>
+
+    {% endif %}
+
+
+
 
 {% endblock %}
 

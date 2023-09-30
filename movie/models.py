@@ -14,12 +14,12 @@ class Movie:
         self.director = director
         self.keywords = keywords
         self.overview = overview
-        self.runtime_minutes = runtime_minutes
+        self.runtime_minutes = int(runtime_minutes)
         self.genres = genres
         self.production_companies = production_companies
         self.release_date = release_date
-        self.vote_count = vote_count
-        self.vote_average = vote_average
+        self.vote_count = int(vote_count)
+        self.vote_average = float(vote_average)
 
     @staticmethod
     def get_all():
