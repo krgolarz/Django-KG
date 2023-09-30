@@ -20,18 +20,18 @@
 <div uk-height-viewport="offset-bottom: 0" class="uk-flex" uk-flex>
     <div class="uk-width-small movie-nav">
         <div class="uk-padding-small uk-flex uk-flex-column" style="gap: 15px">
-{% include 'nav_button.html' %}
+            {% include 'nav_button.html' with url_name='all_movies' icon='video-camera' name='Filmy'%}
+            {% include 'nav_button.html' with url_name='all_movies' icon='video-camera' name='aaaaaaaaa'%}
         </div>
     </div>
     <div class="uk-width-expand">
         {% block page_content %}
 
-{% endblock %}
+        {% endblock %}
 
     </div>
 
 </div>
-
 
 
 </body>

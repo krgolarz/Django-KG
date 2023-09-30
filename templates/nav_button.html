@@ -1,6 +1,7 @@
-            <div>
-                <a href="{% url 'all_movies' %}" class="uk-button uk-button-default uk-border-rounded uk-width-1-1" style="color: white">
-                    <span class="uk-icon" style="color: white" uk-icon="video-camera"></span>
-                    <div>Filmy</div>
-                </a>
-            </div>
+<div>
+    <a href="{% url url_name %}" class="uk-button uk-button-default uk-border-rounded uk-width-1-1"
+       style="color: white">
+        <span class="uk-icon" style="color: white" uk-icon="{{ icon }}"></span>
+        <div>{{ name }}</div>
+    </a>
+</div>
