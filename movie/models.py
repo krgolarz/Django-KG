@@ -50,6 +50,7 @@ class Book(models.Model):
     publish_date = models.DateField()
     vote_count = models.IntegerField()
     vote_average = models.DecimalField(max_digits=5, decimal_places=2)
+    author = models.CharField(max_length=255,null=True)
 
     def __str__(self):
         return f"{self.title}"
@@ -57,6 +58,13 @@ class Book(models.Model):
 '''
 Movie.objects.filter(title__startswith='Jurassic')
 Movie.objects.filter(title__contains='Jurassic', vote_average__gt = 7)
-
+from django.db.models import Q
+Book.objects.filter(Q(title__startswith='lotr')|Q(title__startswith='alice'))
+Book.objects.filter(Q(title__startswith='lotr')|Q(title__startswith='alice'),Q(vote_count__gte=1000))
+Book.objects.filter(Q(title__startswith='lotr')|Q(title__startswith='alice'),Q(vote_count__gte=1000))
+from django.db.models import Avg
+books_aggregate_info = all_books.aggregate(Avg("vote_count"),Avg("vote_average"))
+from django.db.models import Min, Max
+books_aggregate_info = all_books.aggregate(Avg("vote_count"),Avg("vote_average"), Max("vote_count"), Min("vote_count"))
 
 '''
