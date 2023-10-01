@@ -47,6 +47,7 @@ class MovieCollection(models.Model):
     creation_date = models.DateField()
     update_date = models.DateField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    movies = models.ManyToManyField(Movie)
 
     def __str__(self):
         return self.name()

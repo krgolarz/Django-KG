@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.all_movies, name = 'all_movies'),
-    path('<int:id>',views.movie_details, name = 'movie_details')
+    path('<int:id>',views.movie_details, name = 'movie_details'),
+    path('collections',views.all_collections, name = 'all_collections')
 
 ]

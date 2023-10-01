@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Collections
+{% endblock %}
+
+{% block page_content %}
+	<div class="uk-container"></div>
+    <table class="uk-table uk-table-divider">
+    <thead>
+        <tr>
+            <td>Nazwa</td>
+            <td>Wlasciciel</td>
+            <td>Data utworzenia</td>
+            <td>Data edycji</td>
+            <td>liczba filmow</td>
+            <td>Akcje</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for collection in collections %}
+    <tr>
+        <td>{{ collection.name }}</td>
+        <td>{{ collection.owner.full_name }}</td>
+        <td>{{ collection.creation_date }}</td>
+        <td>{{ collection.update_date }}</td>
+        <td>---------</td>
+        <td> <a href="a">Szczegoly</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+
+    </tbody>
+    </table>
+{% endblock %}
