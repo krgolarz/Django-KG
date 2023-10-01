@@ -45,6 +45,12 @@ class Movie(models.Model):
         return None
 
 
+class Book(models.Model):
+    name = models.CharField(max_length=255)
+    release_date = models.DateField()
+    vote_count = models.IntegerField()
+    vote_average = models.DecimalField(max_digits=5, decimal_places=2)
+
 
 
 '''
