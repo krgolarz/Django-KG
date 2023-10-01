@@ -6,6 +6,9 @@
 
 {% block page_content %}
 <div class="uk-container">
+{% if title_filter %}
+<p>Zastosowany filtr: {{ title_filter }}</p>
+{% endif %}
 <table class="uk-table uk-table-divider">
     <thead>
     <tr>
@@ -26,7 +29,7 @@
             <td>{{ movie.release_date }}</td>
             <td>{{ movie.vote_count }}</td>
             <td>{{ movie.vote_average|floatformat:1 }}</td>
-            <td> <a href="{% url 'movie_details' tmdb_id=movie.tmdb_id %}">Szczegoly</a>
+            <td> <a href="{% url 'movie_details' id=movie.id %}">Szczegoly</a>
 
             </td>
         </tr>
