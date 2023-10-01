@@ -34,6 +34,13 @@
                                 Dodaj film
                             </a>
                         </li>
+                        <li>
+                            {{ user.get_username|upper }}
+
+                        </li>
+                        <li>
+                            <a class="uk-button-default" href="{% url 'logout' %}">Wyloguj</a>
+                        </li>
                     </ul>
 
                 </div>

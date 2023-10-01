@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block page_title %}
+    Login
+{% endblock %}
+{% block page_content %}
+    <div class="uk-container">
+        <h1>Zaloguj się</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button class="uk-button-default uk-button uk-border-rounded">
+                Zaloguj
+            </button>
+        </form>
+    </div>
+{% endblock %}
