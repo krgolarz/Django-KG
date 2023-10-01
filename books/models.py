@@ -7,6 +7,9 @@ class PublishPlace(models.Model):
     city = models.CharField(max_length=255, null=True)
     country = models.CharField(max_length=255, null=True)
 
+    def __str__(self):
+        return f"Publish place {self.city}"
+
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
