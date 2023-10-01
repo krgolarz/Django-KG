@@ -4,7 +4,7 @@ from . import models
 from django.http import HttpResponseRedirect
 from django.db.models import Count
 from . import models
-from .forms import MovieForm
+from .forms import MovieForm, MovieFormTwo
 
 
 def all_movies(request):
@@ -23,7 +23,7 @@ def movie_details(request, id):
 
 def add_movie(request):
     if request.method == 'POST':
-        new_movie_data = MovieForm(request.POST)
+        new_movie_data = MovieFormTwo(request.POST)
 
         if new_movie_data.is_valid():
             '''#jezeli poprawny'''
@@ -32,8 +32,11 @@ def add_movie(request):
 
         '''return HttpResponseRedirect(reversed('all_movies'))'''
         return redirect('all_movies')
-    movie_form = MovieForm()
-    return render(request, 'movie/add_movie.html', {'movie_form': movie_form})
+
+    else:
+        new_movie_data = MovieFormTwo()
+
+    return render(request, 'movie/add_movie.html', {'movie_form': new_movie_data})
 
 
 def all_collections(request):
