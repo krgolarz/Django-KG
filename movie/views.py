@@ -23,10 +23,12 @@ def movie_details(request, id):
 
 def add_movie(request):
     if request.method == 'POST':
-        print(request.POST.get('title'))
-        print(request.POST.get('cast'))
-        print(request.POST.get('release_date'))
-        print(request.body)
+        new_movie_data = MovieForm(request.POST)
+
+        if new_movie_data.is_valid():
+            '''#jezeli poprawny'''
+            movie_data = new_movie_data.cleaned_data
+            models.Movie.create_from_form(movie_data)
 
         '''return HttpResponseRedirect(reversed('all_movies'))'''
         return redirect('all_movies')
