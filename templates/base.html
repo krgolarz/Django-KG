@@ -20,11 +20,25 @@
 <div uk-height-viewport="offset-bottom: 0" class="uk-flex" uk-flex>
     <div class="uk-width-small movie-nav">
         <div class="uk-padding-small uk-flex uk-flex-column" style="gap: 15px">
-            {% include 'nav_button.html' with url_name='all_movies' icon='video-camera' name='Filmy'%}
-            {% include 'nav_button.html' with url_name='all_collections' icon='list' name='Kolekcje'%}
+            {% include 'nav_button.html' with url_name='all_movies' icon='video-camera' name='Filmy' %}
+            {% include 'nav_button.html' with url_name='all_collections' icon='list' name='Kolekcje' %}
         </div>
     </div>
     <div class="uk-width-expand">
+        <nav class="uk-navbar-container" style="background: inherit">
+            <div class="uk-margin-medium-left " uk-navbar>
+                <div class="uk-navbar-left">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="{% url 'add_movie' %}">
+                                Dodaj film
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
         {% block page_content %}
 
         {% endblock %}

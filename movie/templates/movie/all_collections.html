@@ -24,8 +24,8 @@
         <td>{{ collection.owner.full_name }}</td>
         <td>{{ collection.creation_date }}</td>
         <td>{{ collection.update_date }}</td>
-        <td>---------</td>
-        <td> <a href="a">Szczegoly</a>
+        <td>{{ collection.movies_count }}</td>
+        <td> <a href="{% url 'collections_details' id=collection.id %}">Szczegoly</a>
         </td>
     </tr>
     {% endfor %}
