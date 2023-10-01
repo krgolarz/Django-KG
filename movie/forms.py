@@ -13,3 +13,10 @@ class MovieForm(forms.Form):
     genres = forms.CharField(max_length=255, label='Gatunki ,rozdzielone |')
     production_companies = forms.CharField(max_length=255, label='Producenci, rodzielone |')
     release_date = forms.DateField(label='Data Produkcji', widget=forms.DateInput(attrs={"type": "date"}))
+
+    def __init__(self, *args, **kwargs):
+        super(MovieForm, self).__init__(*args, *kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'uk-input'
+
+
