@@ -37,10 +37,10 @@ class MovieFormTwo(forms.ModelForm):
     class Meta:
         model = Movie
         exclude = ['statistics']
-        #fields = ['title','release_date']
-        #fields = '__all__'
+        # fields = ['title','release_date']
+        # fields = '__all__'
         labels = {'tmdb_id': 'TMDB ID', 'title': 'Tytul'}
         widgets = {
-            'release_date':forms.DateInput(attrs={'type':'date'})
+            'release_date': forms.DateInput(attrs={'type': 'date'})
 
         }
